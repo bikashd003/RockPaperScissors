@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock, Paper, Scissors</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="https://e7.pngegg.com/pngimages/306/774/png-clipart-rock-paper-scissors-steemit-logo-rock-paper-scissors-logo-scissors-thumbnail.png" type="image/x-icon">
+  </head>
+  <body>
+    <header id="header">
+      <div class="leftside">
+        <h1>Rock</h1>
+        <h1>Paper</h1>
+        <h1>Scissors</h1>
+      </div>
+      <div class="rightside">
+        <div class="computer-score">
+          <h3>computer score</h3>
+          <h1>0</h1>
+        </div>
+        <div class="your-score">
+          <h3>your score</h3>
+          <h1>0</h1>
+        </div>
+      </div>
+    </header>
+    <section class="container">
+      <div class="game">
+        <button class="choice-btn rock-btn" value="rock">
+            <img src="rock.svg" alt="Rock" />
+        </button>
+        <button class="choice-btn scissors-btn" value="scissors">
+            <img src="scissors.svg" alt="scissors" />
+        </button>
+        <button class="choice-btn paper-btn" value="paper">
+            <img src="paper.svg" alt="paper" />
+        </button>
+      </div>
+      <div class="lines">
+        <img src="Line 1.png" class="line line1" alt="Line 1" />
+        <img src="Line 2.png" class="line line2" alt="Line 2" />
+        <img src="Line 3.png" class="line line3" alt="Line 3" />
+      </div>
+    </section>
+
+    <div class="rule-area">
+      <h1 class="game-rules">Game Rules</h1>
+      <button class="close-rules">X</button>
+      <ul class="rules-list">
+        <li class="rules-name">
+          Rock beats scissors, scissors beat paper, and paper beats rock.
+        </li>
+        <li class="rules-name">
+          Agree ahead of time whether you’ll count off “rock, paper, scissors,
+          shoot” or just “rock, paper, scissors.”
+        </li>
+        <li class="rules-name">
+          Use rock, paper, scissors to settle minor decisions or simply play to
+          pass the time
+        </li>
+        <li class="rules-name">
+          If both players lay down the same hand, each player lays down another
+          hand
+        </li>
+      </ul>
+    </div>
+<div class="rule-btn">
+
+  <button class="rules">rules</button>
+  <button class="next">next</button>
+</div>
+
+    <section class="results hide">
+          <div class="you-picked">
+              <h2>you picked</h2>
+              <div class="result"></div>
+          </div>
+          <div class="decision">
+              <h1 class="result-text"></h1>
+              <h3>against pc</h3>
+              <button class="play-again">play again</button>
+          </div>
+          <div class="pc-picked">
+              <h2>pc picked</h2>
+              <div class="result"></div>
+          </div>
+
+  </section>
+
+
+
+<section class="hurray hide">
+  <div class="trophy">
+    <img src="trophy.png" alt="trophy">
+  </div>
+  <h1>hurray!!</h1>
+  <h2>you won the game</h2>
+  <button class="again-play">play again</button>
+</section>
+
+    <script src="script.js"></script>
+  </body>
+</html>

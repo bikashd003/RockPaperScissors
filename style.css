@@ -1,0 +1,508 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Rubik&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body,
+html {
+  background-color: #89c15e;
+  font-family: Roboto;
+}
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5vw;
+  position: relative;
+  margin: 2.5vw 20vw;
+  border: 2px solid #fff;
+  text-transform: uppercase;
+  border-radius: 10px;
+}
+.leftside {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  font-size: 1vw;
+}
+.rightside {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1vw;
+}
+.computer-score {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background-color: #fff;
+  width: 40%;
+  border-radius: 10px;
+  padding: 0 20px;
+}
+.computer-score h3,
+.your-score h3 {
+  color: #656565;
+  font-size: 1vw;
+}
+.computer-score h1,
+.your-score h1 {
+  font-size: 3.5vw;
+  font-weight: 800;
+}
+.your-score {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  width: 40%;
+  text-align: center;
+  border-radius: 10px;
+  padding: 0 20px;
+}
+.container {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.choice-btn {
+  position: relative;
+  z-index: 2;
+}
+
+.lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.line {
+  position: absolute;
+  transform-origin: center;
+}
+
+.line1 {
+  top: 18%;
+  left: 20%;
+  /* width: 10vw;
+  height: 0.8vw; */
+  width: 12vmax;
+  height: 0.8vmax;
+}
+
+.line2 {
+  top: 30%;
+  right: 24%;
+  height: 12vmax;
+  width: 3.5vmax;
+  transform: rotate(12deg);
+}
+
+.line3 {
+  top: 30%;
+  left: 24%;
+  height: 12vmax;
+  width: 3.5vmax;
+  transform: rotate(-12deg);
+}
+.game {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5vw;
+  align-items: center;
+  justify-content: center;
+}
+.paper-btn {
+  cursor: pointer;
+  grid-column: 1 / span 2;
+  justify-self: center;
+  border-radius: 50%;
+  padding: 1.5vmax;
+  border-width: 0;
+  border: 1vmax solid #ffa943;
+}
+.rock-btn {
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 1.5vmax;
+  border-width: 0;
+  border: 1vmax solid #0074b6;
+  /* margin-right: 2vw; */
+}
+.scissors-btn {
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 1.5vmax;
+  border-width: 0;
+  border: 1vmax solid #bd00ff;
+  /* margin-left: 2vw; */
+}
+
+.game img {
+  height: 2.5vmax;
+  width: 2.5vmax;
+}
+
+.rule-area {
+  display: none;
+  border: 6px solid #fff;
+  border-radius: 10px;
+  width: 15%;
+  align-self: flex-end;
+  position: absolute;
+  right: 2em;
+  background-color: #004429;
+  top: 40%;
+}
+.game-rules {
+  text-align: center;
+  font-size: 2vw;
+  color: #fff;
+  padding: 1vw 0 0 0;
+}
+.close-rules {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(30px, -30px);
+  padding: 0.5vw 0.7vw;
+  border-radius: 50%;
+  border: 6px solid #fff;
+  background-color: red;
+  color: #fff;
+  font-weight: 900;
+  font-size: 1vmax;
+  cursor: pointer;
+}
+.rules-list {
+  list-style-type: square;
+  color: #fff;
+  font-size: 0.8vmax;
+  padding: 0 2vw;
+  position: relative;
+}
+
+li::marker {
+  color: #ffa943;
+  font-size: 1.5vw;
+}
+.rules-name {
+  margin: 10px 0;
+}
+.rule-btn {
+  display: flex;
+  position: absolute;
+  bottom: 2vw;
+  justify-content: flex-end;
+  width: 100%;
+  gap: 20px;
+  padding: 0 2vw;
+}
+.rules {
+  padding: 0.2vw 0.8vw;
+  text-transform: uppercase;
+  border-radius: 8px;
+  border: 2px solid #fff;
+  background-color: transparent;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.2vw;
+}
+.next {
+  padding: 0.2vw 0.8vw;
+  text-transform: uppercase;
+  border-radius: 8px;
+  border: 2px solid #fff;
+  background-color: transparent;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.2vw;
+  display: none;
+}
+
+.rule-area.active {
+  display: block;
+}
+.you-picked h2,
+.pc-picked h2 {
+  text-transform: uppercase;
+  padding: 1vw;
+  font-size: 1.2vw;
+  color: #fff;
+  letter-spacing: 2px;
+  font-weight: 500;
+  margin: 0 0 2.5vw 0;
+  text-align: center;
+}
+
+.results {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5vw;
+  text-align: center;
+  padding: 2vw;
+  white-space: nowrap;
+}
+.play-again {
+  padding: 0.7vw 2vw;
+  border-radius: 10px;
+  border-width: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #6b6b6b;
+  letter-spacing: 2px;
+  font-weight: 600;
+  font-size: 0.7vw;
+  position: relative;
+  top: 75%;
+}
+button {
+  outline: none;
+  border-radius: 50%;
+  border: 0;
+}
+.winner {
+  box-shadow: 0 0 0 2.5vw rgba(29, 168, 43, 0.79),
+    0 0 0 4vw rgba(38, 172, 26, 0.39), 0 0 0 5.5vw rgba(75, 180, 9, 0.2);
+}
+.result {
+  width: fit-content;
+  border-radius: 50%;
+  height: fit-content;
+  margin: auto;
+}
+.result-text {
+  color: #fff;
+  font-size: 2.3vw;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  position: relative;
+  top: 65%;
+}
+.decision h3 {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 1.3vw;
+  letter-spacing: 4px;
+  position: relative;
+  top: 70%;
+}
+.results img {
+  height: 2.5vmax;
+  width: 2.5vmax;
+}
+
+/* hurray  */
+.hurray {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5vw 0 0 0;
+}
+
+.trophy {
+  background-image: url("./hurray.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 29%;
+  display: flex;
+  justify-content: center;
+  padding: 5vw 5vw 0 5vw;
+}
+
+.trophy img {
+  width: 12vw;
+}
+
+.hurray h1 {
+  font-size: 8vw;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: Roboto;
+}
+
+.again-play {
+  padding: 0.7vw 2vw;
+  border-radius: 10px;
+  border-width: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: #6b6b6b;
+  letter-spacing: 1px;
+  font-weight: 700;
+  font-size: 0.8vmax;
+}
+
+.hurray h2 {
+  font-size: 3.5vw;
+  text-transform: uppercase;
+  color: #fff;
+  font-family: Roboto;
+}
+
+.results.hide,
+.container.hide,
+.hurray.hide,
+#header.hide,
+.decision.hide {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #header {
+    margin: 5vw;
+    padding: 1vw;
+  }
+
+  .leftside {
+    font-size: 2vw;
+  }
+
+  .rightside {
+    gap: 3vw;
+    width: 50%;
+  }
+
+  .computer-score,
+  .your-score {
+    width: 100%;
+    padding: 3vw;
+    text-align: center;
+  }
+
+  .computer-score h1,
+  .your-score h1 {
+    font-size: 8vw;
+  }
+  .computer-score h3,
+  .your-score h3 {
+    font-size: 2.5vw;
+  }
+  .container {
+    top: 35%;
+  }
+  .game {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 3vw;
+    margin-top: 5vw;
+  }
+
+  .paper-btn,
+  .rock-btn,
+  .scissors-btn {
+    padding: 5vw;
+  }
+
+  .game img {
+    height: 10vw;
+    width: 10vw;
+  }
+
+  .rule-area {
+    border-radius: 5px;
+    width: 50%;
+    right: 2em;
+    top: 55%;
+    border: 4px solid #fff;
+  }
+  .game-rules {
+    font-size: 4vw;
+    padding: 2vw 0 0 0;
+  }
+  li::marker {
+    color: #ffa943;
+    font-size: 4vw;
+  }
+  .close-rules {
+    font-size: 4vw;
+    padding: 2vw 2.5vw;
+    border-radius: 100%;
+    border: 4px solid #fff;
+  }
+
+  .rules-list {
+    font-size: 3vw;
+    padding: 0 5vw;
+  }
+
+  .rules,
+  .next {
+    font-size: 4vw;
+    padding: 2vw;
+  }
+
+  .rule-btn {
+    bottom: 5vw;
+    gap: 20px;
+    padding: 0 4vw;
+  }
+  .decision {
+    white-space: nowrap;
+  }
+  .hurray h1 {
+    font-size: 10vw;
+  }
+
+  .hurray h2 {
+    font-size: 6vw;
+  }
+
+  .play-again {
+    padding: 2vw;
+    font-size: 2vw;
+    letter-spacing: 1px;
+    top: 55%;
+  }
+  .again-play {
+    font-size: 1.2vmax;
+  }
+
+  .you-picked h2,
+  .pc-picked h2 {
+    font-size: 4vw;
+    padding: 3vw;
+    letter-spacing: 1px;
+  }
+
+  .results {
+    gap: 4vw;
+    white-space: normal;
+    top: 35%;
+  }
+
+  .result-text {
+    font-size: 5vw;
+    top: 60%;
+    margin: 5vw;
+  }
+
+  .decision h3 {
+    font-size: 3vw;
+    top: 50%;
+    letter-spacing: 1px;
+  }
+
+  .results img {
+    height: 8vw;
+    width: 8vw;
+  }
+  .line1{
+    top: 28%;
+  }
+}
