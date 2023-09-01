@@ -2,11 +2,11 @@
 ![Alt text](interface.jpg);
 
 Welcome to the Rock Paper Scissors game! This is a simple web-based game built with HTML, CSS, and JavaScript. In addition to providing an enjoyable gaming experience, this project also incorporates local storage to track and display the player's score.
+https://bikashd003.github.io/RockPaperScissors/
 
 ## Table of Contents
 
 - [Features](#features)
-- [Demo](#demo)
 - [How to Play](#how-to-play)
 - [Installation](#installation)
 - [Usage](#usage)
@@ -18,9 +18,7 @@ Welcome to the Rock Paper Scissors game! This is a simple web-based game built w
 - Fully responsive design, ensuring an optimal experience on all devices.
 - Local storage functionality to keep track of the player's score across sessions.
 
-## Demo
 
-You can try the game live at [https://bikashd003.github.io/RockPaperScissors/](#).
 
 ## How to Play
 
